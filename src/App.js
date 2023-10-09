@@ -77,7 +77,7 @@ function App() {
           <p
             style={{ color: "white", marginTop: "40px", marginBottom: "20px" }}
           >
-            Copyright © 2021 Avigael Gomez
+            Copyright © 2024 Avigael Gomez
           </p>
         </div>
       </section>
