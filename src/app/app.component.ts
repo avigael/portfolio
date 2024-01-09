@@ -1,16 +1,43 @@
-import { Component, HostListener } from "@angular/core";
+import { Component, HostListener, OnInit } from "@angular/core";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
 })
-export class AppComponent {
-  title = "portfolio";
+export class AppComponent implements OnInit {
+  currentDate = new Date();
+  activeNav = "about";
+
+  ngOnInit(): void {
+    this.setActiveNav();
+  }
+
+  setActiveNav(page?: string): void {
+    let name = "about";
+    if (!page) {
+      const urlParts = window.location.href.split("#");
+      if (urlParts.length > 1) {
+        name = urlParts[1];
+      }
+    } else {
+      name = page;
+    }
+    this.activeNav = name;
+  }
 
   @HostListener("window:scroll", ["$event"])
   onScroll() {
-    // Add your scroll logic here
+    var about = document.getElementById("about");
+    var experience = document.getElementById("experience");
+
+    if (experience && scrollY > experience.offsetHeight) {
+      this.activeNav = "projects";
+    } else if (about && scrollY > about.offsetHeight) {
+      this.activeNav = "experience";
+    } else {
+      this.activeNav = "about";
+    }
   }
 }
 
