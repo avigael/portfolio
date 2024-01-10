@@ -1,0 +1,197 @@
+<div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+  <div class="lg:flex lg:justify-between lg:gap-4">
+    <header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+      <div>
+        <h1 class="text-4xl font-bold text-slate-200 sm:text-5xl">
+          <a href="/">Gael Gomez</a>
+        </h1>
+        <h2 class="mt-3 text-lg font-medium text-slate-200 sm:text-xl">Software Engineer</h2>
+        <p class="mt-4 max-w-xs leading-normal"><em>Dream big and dare to fail.</em> - Norman Vaughan</p>
+        <nav class="nav hidden lg:block" aria-label="Navigation links">
+          <ul class="mt-16 w-max">
+            <li>
+              <a
+                class="group flex items-center py-3"
+                [ngClass]="{ active: activeNav === 'about' }"
+                href="#about"
+                (click)="setActiveNav('about')"
+              >
+                <span
+                  class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"
+                ></span>
+                <span
+                  class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                >
+                  About
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="group flex items-center py-3"
+                [ngClass]="{ active: activeNav === 'experience' }"
+                href="#experience"
+                (click)="setActiveNav('experience')"
+              >
+                <span
+                  class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"
+                ></span>
+                <span
+                  class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                >
+                  Experience
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="group flex items-center py-3"
+                [ngClass]="{ active: activeNav === 'projects' }"
+                href="#projects"
+                (click)="setActiveNav('projects')"
+              >
+                <span
+                  class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"
+                ></span>
+                <span
+                  class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                >
+                  Projects
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <app-social-media></app-social-media>
+    </header>
+    <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
+      <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
+        <div
+          class="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+        >
+          <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">About</h2>
+        </div>
+        <div>
+          <p class="mb-4">
+            I recieved my Bachelor's degree in Computer Science from the
+            <app-link text="University of Wisconsin-Madison" url="https://www.wisc.edu/"></app-link>. Currently, I
+            working as a front-end engineer at
+            <app-link text="Union Pacific Railroad" url="https://www.up.com/"></app-link> in Omaha, NE. My works mostly
+            consist of updating legacy customer facing UI with modern technologies.
+          </p>
+          <p class="mb-4">
+            Currently, my primary focus lies in front-end development. I also have a background in user experience
+            design, which helps me bring a nuanced understanding of designing interfaces to my front-end projects.
+          </p>
+          <p class="mb-4">
+            In my free time, I enjoy playing video games with my friends, bicycling around the city, indoor bouldering,
+            learning Norwegian on Duolingo, or catching up on movies and tv shows on my
+            <app-link text="Letterboxd watchlist" url="https://letterboxd.com/9ael/"></app-link>.
+          </p>
+        </div>
+      </section>
+      <section
+        id="experience"
+        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+        aria-label="Work experience"
+      >
+        <div
+          class="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+        >
+          <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Experience</h2>
+        </div>
+        <div>
+          <ol class="group/list">
+            <div *ngFor="let e of experience">
+              <app-experience-card [experience]="e"></app-experience-card>
+            </div>
+          </ol>
+          <div class="mt-12">
+            <a
+              class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
+              href="/assets/gael_gomez_resume.pdf"
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label="Download Resume PDF"
+            >
+              <span class="inline-block">
+                Download Resume PDF
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section
+        id="projects"
+        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+        aria-label="Selected projects"
+      >
+        <div
+          class="sticky top-0 z-20 -mx-6 mb-4 w-screen px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+        >
+          <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Projects</h2>
+        </div>
+        <div>
+          <ul class="group/list">
+            <div *ngFor="let project of projects">
+              <app-project-card [project]="project"></app-project-card>
+            </div>
+          </ul>
+          <div class="mt-12">
+            <a
+              class="inline-flex items-center font-medium leading-tight text-slate-200 group"
+              aria-label="See More"
+              href="https://github.com/avigael"
+            >
+              <span class="inline-block">
+                <span
+                  class="border-b border-transparent pb-px transition group-hover:border-teal-300 motion-reduce:transition-none"
+                >
+                  See More
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="ml-1 inline-block h-4 w-4 shrink-0 -translate-y-px transition-transform group-hover:translate-x-2 group-focus-visible:translate-x-2 motion-reduce:transition-none"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <footer class="max-w-md text-sm text-slate-500 sm:pb-0">
+        <p>
+          Built with
+          <app-link [footer]="true" text="Angular" url="https://angular.io/"></app-link> using
+          <app-link [footer]="true" text="Tailwind CSS" url="https://tailwindcss.com/"></app-link> and hosted on
+          <app-link [footer]="true" text="Github Pages" url="https://pages.github.com/"></app-link>. Copyright ©
+          {{ currentDate | date: "YYYY" }}
+          Gael Gomez
+        </p>
+      </footer>
+    </main>
+  </div>
+</div>
+
