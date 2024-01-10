@@ -103,18 +103,17 @@
         </div>
         <div>
           <ol class="group/list">
-            <div *ngFor="let n of [1, 2, 3, 4]">
-              <app-experience-card></app-experience-card>
+            <div *ngFor="let e of experience">
+              <app-experience-card [experience]="e"></app-experience-card>
             </div>
           </ol>
           <div class="mt-12">
-            <!-- TODO: ATTACH RESUME -->
             <a
               class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
-              href="/resume.pdf"
+              href="/assets/gael_gomez_resume.pdf"
               target="_blank"
               rel="noreferrer noopener"
-              aria-label="Download Resume PDF (opens in a new tab)"
+              aria-label="Download Resume PDF"
             >
               <span class="inline-block">
                 Download Resume PDF
@@ -148,8 +147,8 @@
         </div>
         <div>
           <ul class="group/list">
-            <div *ngFor="let n of [1, 2, 3, 4]">
-              <app-project-card></app-project-card>
+            <div *ngFor="let project of projects">
+              <app-project-card [project]="project"></app-project-card>
             </div>
           </ul>
           <div class="mt-12">

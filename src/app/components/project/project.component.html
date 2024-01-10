@@ -9,14 +9,14 @@
       <h3>
         <a
           class="inline-flex items-baseline font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
-          href="{{ url }}"
+          href="{{ project.link }}"
           target="_blank"
           rel="noreferrer noopener"
-          attr.aria-label="{{ projectTitle }} (opens in new tab)"
+          attr.aria-label="{{ project.title }} (opens in new tab)"
         >
           <span class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
           <span>
-            {{ projectTitle }}
+            {{ project.title }}
             <span class="inline-block">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,10 +36,10 @@
         </a>
       </h3>
       <p class="mt-2 text-sm leading-normal">
-        {{ description }}
+        {{ project.description }}
       </p>
       <ul class="mt-2 flex flex-wrap" aria-label="Technologies used:">
-        <div *ngFor="let tag of tags">
+        <div *ngFor="let tag of project.tags">
           <li class="mr-1.5 mt-2">
             <div
               class="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300"
@@ -51,7 +51,7 @@
       </ul>
     </div>
     <img
-      alt="{{ projectTitle }}"
+      alt="{{ project.title }}"
       loading="lazy"
       width="200"
       height="48"
@@ -59,7 +59,7 @@
       data-nimg="1"
       class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
       style="color: transparent"
-      src="{{ image }}"
+      src="{{ project.image }}"
     />
   </div>
 </li>
