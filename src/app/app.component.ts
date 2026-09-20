@@ -31,18 +31,16 @@ export class AppComponent implements OnInit {
     this.activeNav = name;
   }
 
-  @HostListener("window:scroll", ["$event"])
-  onScroll() {
-    var about = document.getElementById("about");
-    var experience = document.getElementById("experience");
+  @HostListener("window:scroll")
+  onScroll(): void {
+    const sections = ["about", "experience", "projects"];
+    const readingLine = window.scrollY + window.innerHeight * 0.35;
 
-    if (experience && scrollY > experience.offsetHeight) {
-      this.activeNav = "projects";
-    } else if (about && scrollY > about.offsetHeight) {
-      this.activeNav = "experience";
-    } else {
-      this.activeNav = "about";
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element && element.offsetTop <= readingLine) {
+        this.activeNav = section;
+      }
     }
   }
 }
-

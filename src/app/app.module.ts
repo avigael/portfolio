@@ -15,4 +15,3 @@ import { SocialMediaComponent } from "./components/social-media/social-media.com
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-

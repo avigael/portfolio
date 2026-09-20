@@ -10,4 +10,3 @@ export class LinkTextComponent {
   @Input() text = "";
   @Input() url = "";
 }
-

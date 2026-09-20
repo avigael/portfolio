@@ -12,5 +12,6 @@ export interface Experience {
   title: string;
   organization: string;
   description: string;
+  highlights?: string[];
   tags: string[];
 }

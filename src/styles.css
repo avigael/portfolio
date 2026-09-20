@@ -3,3 +3,120 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  background: #09090b;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.ambient-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+
+.ambient-blob {
+  position: absolute;
+  display: block;
+  width: clamp(20rem, 36vw, 34rem);
+  height: clamp(20rem, 36vw, 34rem);
+  border-radius: 42% 58% 65% 35% / 45% 38% 62% 55%;
+  filter: blur(72px);
+  opacity: 0.34;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.ambient-blob-one {
+  top: -18rem;
+  left: -10rem;
+  background: radial-gradient(circle at 35% 35%, #64748b 0%, #334155 45%, transparent 72%);
+  animation: ambient-float-one 24s ease-in-out infinite alternate;
+}
+
+.ambient-blob-two {
+  top: 28vh;
+  right: -15rem;
+  background: radial-gradient(circle at 45% 45%, #52525b 0%, #312e81 48%, transparent 72%);
+  animation: ambient-float-two 30s ease-in-out infinite alternate;
+}
+
+.ambient-blob-three {
+  bottom: -20rem;
+  left: 30vw;
+  background: radial-gradient(circle at 55% 45%, #475569 0%, #1e293b 50%, transparent 74%);
+  animation: ambient-float-three 27s ease-in-out infinite alternate;
+}
+
+@keyframes ambient-float-one {
+  0% {
+    transform: translate3d(-4vw, -4vh, 0) scale(1) rotate(0deg);
+  }
+  55% {
+    transform: translate3d(22vw, 28vh, 0) scale(1.16) rotate(20deg);
+  }
+  100% {
+    transform: translate3d(8vw, 62vh, 0) scale(0.94) rotate(-8deg);
+  }
+}
+
+@keyframes ambient-float-two {
+  0% {
+    transform: translate3d(6vw, -12vh, 0) scale(0.92) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-30vw, 8vh, 0) scale(1.12) rotate(-24deg);
+  }
+  100% {
+    transform: translate3d(-14vw, 42vh, 0) scale(1) rotate(12deg);
+  }
+}
+
+@keyframes ambient-float-three {
+  0% {
+    transform: translate3d(-18vw, 10vh, 0) scale(1.08) rotate(-10deg);
+  }
+  52% {
+    transform: translate3d(20vw, -38vh, 0) scale(0.9) rotate(16deg);
+  }
+  100% {
+    transform: translate3d(-8vw, -72vh, 0) scale(1.14) rotate(4deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .ambient-blob {
+    width: 19rem;
+    height: 19rem;
+    filter: blur(54px);
+    opacity: 0.28;
+  }
+
+  .ambient-blob-one {
+    top: -10rem;
+    left: -10rem;
+  }
+
+  .ambient-blob-two {
+    top: 38vh;
+    right: -12rem;
+  }
+
+  .ambient-blob-three {
+    bottom: -11rem;
+    left: 12vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-blob {
+    animation: none;
+    will-change: auto;
+  }
+}

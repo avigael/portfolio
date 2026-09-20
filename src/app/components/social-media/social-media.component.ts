@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-social-media',
-  templateUrl: './social-media.component.html',
-  styleUrls: ['./social-media.component.css']
+  selector: "app-social-media",
+  templateUrl: "./social-media.component.html",
+  styleUrls: ["./social-media.component.css"],
 })
-export class SocialMediaComponent {
-
-}
+export class SocialMediaComponent {}

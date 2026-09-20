@@ -9,4 +9,3 @@ import { Experience } from "src/app/interfaces/utility.interface";
 export class ExperienceCardComponent {
   @Input() experience!: Experience;
 }
-
