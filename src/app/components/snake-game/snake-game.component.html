@@ -1,4 +1,4 @@
-<section class="snake-game" aria-label="Playable snake game">
+<section class="snake-game" [class.snake-game-open]="isOpen" aria-label="Playable snake game">
   <div class="snake-toolbar">
     <button type="button" class="snake-play-button" (click)="startGame()">
       {{ buttonLabel }}
@@ -6,23 +6,33 @@
     <span class="snake-score" aria-live="polite">Score {{ score }}</span>
   </div>
 
-  <canvas
-    #board
-    class="snake-board"
-    width="240"
-    height="144"
-    role="img"
-    aria-label="A fifteen by nine pixel snake game board"
-  ></canvas>
+  <div class="snake-panel">
+    <div class="snake-mobile-toolbar">
+      <span class="snake-score" aria-live="polite">Score {{ score }}</span>
+      <div class="snake-mobile-actions">
+        <button type="button" (click)="startGame()">Restart</button>
+        <button type="button" (click)="closeGame()">Close</button>
+      </div>
+    </div>
 
-  <p class="snake-keyboard-hint">Use the arrow keys to move</p>
+    <canvas
+      #board
+      class="snake-board"
+      width="240"
+      height="144"
+      role="img"
+      aria-label="A fifteen by nine pixel snake game board"
+    ></canvas>
 
-  <div class="snake-dpad" aria-label="Snake direction controls">
-    <span></span>
-    <button type="button" aria-label="Move up" (click)="setDirection('up')">&#9650;</button>
-    <span></span>
-    <button type="button" aria-label="Move left" (click)="setDirection('left')">&#9664;</button>
-    <button type="button" aria-label="Move down" (click)="setDirection('down')">&#9660;</button>
-    <button type="button" aria-label="Move right" (click)="setDirection('right')">&#9654;</button>
+    <p class="snake-keyboard-hint">Use the arrow keys to move</p>
+
+    <div class="snake-dpad" aria-label="Snake direction controls">
+      <span></span>
+      <button type="button" aria-label="Move up" (click)="setDirection('up')">&#9650;</button>
+      <span></span>
+      <button type="button" aria-label="Move left" (click)="setDirection('left')">&#9664;</button>
+      <button type="button" aria-label="Move down" (click)="setDirection('down')">&#9660;</button>
+      <button type="button" aria-label="Move right" (click)="setDirection('right')">&#9654;</button>
+    </div>
   </div>
 </section>

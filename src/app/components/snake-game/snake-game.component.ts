@@ -21,6 +21,7 @@ export class SnakeGameComponent implements AfterViewInit, OnDestroy {
 
   isPlaying = false;
   isGameOver = false;
+  isOpen = false;
   score = 0;
 
   private snake: Point[] = [];
@@ -45,9 +46,19 @@ export class SnakeGameComponent implements AfterViewInit, OnDestroy {
   startGame(): void {
     this.stopTimer();
     this.resetBoard();
+    this.isOpen = true;
     this.isPlaying = true;
     this.isGameOver = false;
     this.timer = setInterval(() => this.tick(), 125);
+    this.draw();
+  }
+
+  closeGame(): void {
+    this.stopTimer();
+    this.isOpen = false;
+    this.isPlaying = false;
+    this.isGameOver = false;
+    this.resetBoard();
     this.draw();
   }
 
@@ -61,6 +72,11 @@ export class SnakeGameComponent implements AfterViewInit, OnDestroy {
 
   @HostListener("window:keydown", ["$event"])
   handleKeydown(event: KeyboardEvent): void {
+    if (event.key === "Escape" && this.isOpen) {
+      this.closeGame();
+      return;
+    }
+
     if (!this.isPlaying) {
       return;
     }
