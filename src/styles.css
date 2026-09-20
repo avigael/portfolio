@@ -21,8 +21,21 @@ body {
   contain: strict;
 }
 
+.ambient-background::before {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background-image: radial-gradient(circle, rgb(161 161 170 / 0.2) 1px, transparent 1.5px);
+  background-position: 8px 8px;
+  background-size: 16px 16px;
+  content: "";
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  opacity: 0.5;
+}
+
 .ambient-blob {
   position: absolute;
+  z-index: 1;
   display: block;
   width: clamp(20rem, 36vw, 34rem);
   height: clamp(20rem, 36vw, 34rem);
@@ -91,6 +104,12 @@ body {
 }
 
 @media (max-width: 640px) {
+  .ambient-background::before {
+    background-position: 9px 9px;
+    background-size: 18px 18px;
+    opacity: 0.42;
+  }
+
   .ambient-blob {
     width: 19rem;
     height: 19rem;

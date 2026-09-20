@@ -1,0 +1,28 @@
+<section class="snake-game" aria-label="Playable snake game">
+  <div class="snake-toolbar">
+    <button type="button" class="snake-play-button" (click)="startGame()">
+      {{ buttonLabel }}
+    </button>
+    <span class="snake-score" aria-live="polite">Score {{ score }}</span>
+  </div>
+
+  <canvas
+    #board
+    class="snake-board"
+    width="240"
+    height="144"
+    role="img"
+    aria-label="A fifteen by nine pixel snake game board"
+  ></canvas>
+
+  <p class="snake-keyboard-hint">Use the arrow keys to move</p>
+
+  <div class="snake-dpad" aria-label="Snake direction controls">
+    <span></span>
+    <button type="button" aria-label="Move up" (click)="setDirection('up')">&#9650;</button>
+    <span></span>
+    <button type="button" aria-label="Move left" (click)="setDirection('left')">&#9664;</button>
+    <button type="button" aria-label="Move down" (click)="setDirection('down')">&#9660;</button>
+    <button type="button" aria-label="Move right" (click)="setDirection('right')">&#9654;</button>
+  </div>
+</section>

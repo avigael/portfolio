@@ -7,9 +7,17 @@ import { ExperienceCardComponent } from "./components/experience/experience.comp
 import { ProjectCardComponent } from "./components/project/project.component";
 import { LinkTextComponent } from "./components/link-text/link-text.component";
 import { SocialMediaComponent } from "./components/social-media/social-media.component";
+import { SnakeGameComponent } from "./components/snake-game/snake-game.component";
 
 @NgModule({
-  declarations: [AppComponent, ExperienceCardComponent, ProjectCardComponent, LinkTextComponent, SocialMediaComponent],
+  declarations: [
+    AppComponent,
+    ExperienceCardComponent,
+    ProjectCardComponent,
+    LinkTextComponent,
+    SocialMediaComponent,
+    SnakeGameComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
